@@ -17,7 +17,6 @@ Source:		http://www.netlib.org/scalapack/scalapack-%{version}.tgz
 Patch0: 	scalapack.SLmake.inc.patch
 Requires:	blacsmpi-devel >= 1.1
 Provides:	%{name}-%{version}
-Packager:       Antoine Ginies <aginies@mandrakesoft.com>
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 BuildRequires: gcc-gfortran
 BuildRequires: openmpi
