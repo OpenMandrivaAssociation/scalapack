@@ -1,6 +1,6 @@
 %define name	scalapack
-%define	version	1.7
-%define release	5mdk
+%define	version	1.8.0
+%define release	%mkrel 1
 %define lib_name_orig lib%{name}
 %define lib_major 1
 %define lib_name %mklibname %name %{lib_major}
@@ -13,13 +13,14 @@ Release:	%{release}
 License:	GPL
 Group:		Development/Other
 URL:		http://www.netlib.org/scalapack/
-Source:		%{name}-%{version}.tar.bz2
-Patch0:		scalapack.SLmake.inc.patch.bz2
+Source:		http://www.netlib.org/scalapack/scalapack-%{version}.tgz
+Patch0: 	scalapack.SLmake.inc.patch
 Requires:	blacsmpi-devel >= 1.1
 Provides:	%{name}-%{version}
 Packager:       Antoine Ginies <aginies@mandrakesoft.com>
 BuildRoot:	%{_tmppath}/%{name}-%{version}
-Prefix:		%{_prefix}
+BuildRequires: gcc-gfortran
+BuildRequires: openmpi
 
 %package        -n %{lib_name}-devel
 Summary:	Scalapak 
@@ -46,7 +47,9 @@ decomposition.
 %prep
 rm -rf %{buildroot}
 %setup -q
+cp SLmake.inc.example SLmake.inc 
 %patch0 -p0
+sed -i 's|@SCALAPACK_HOME@|%{_builddir}/%{name}-%{version}|' SLmake.inc
 
 %build
 make
