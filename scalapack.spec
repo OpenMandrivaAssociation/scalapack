@@ -17,14 +17,12 @@ Source:		http://www.netlib.org/scalapack/scalapack-%{version}.tgz
 Patch0: 	scalapack.SLmake.inc.patch
 Requires:	blacsmpi-devel >= 1.1
 Provides:	%{name}-%{version}
-BuildRoot:	%{_tmppath}/%{name}-%{version}
 BuildRequires: gcc-gfortran
 BuildRequires: openmpi
 
 %package        -n %{lib_name}-devel
 Summary:	Scalapak 
 Group:          Development/Other
-buildroot:      %{_tmppath}/%{name}-%{version}
 Prefix:         %{_prefix}
 
 %description -n %{lib_name}-devel 
