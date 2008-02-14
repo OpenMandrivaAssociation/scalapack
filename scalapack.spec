@@ -12,6 +12,7 @@ Version:	%{version}
 Release:	%{release}
 License:	GPL
 Group:		Development/Other
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://www.netlib.org/scalapack/
 Source:		http://www.netlib.org/scalapack/scalapack-%{version}.tgz
 Patch0: 	scalapack.SLmake.inc.patch
