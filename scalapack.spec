@@ -1,10 +1,9 @@
 %define name	scalapack
 %define	version	1.8.0
-%define release	%mkrel 4
+%define release	%mkrel 5
 %define lib_name_orig lib%{name}
 %define lib_major 1
 %define lib_name %mklibname %name %{lib_major}
-#%define lib_name %{lib_name_orig}%{lib_major}
 
 Summary:	Scalapack	
 Name:		%{name}
@@ -12,14 +11,14 @@ Version:	%{version}
 Release:	%{release}
 License:	GPL
 Group:		Development/Other
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://www.netlib.org/scalapack/
 Source:		http://www.netlib.org/scalapack/scalapack-%{version}.tgz
 Patch0: 	scalapack.SLmake.inc.patch
 Requires:	blacsmpi-devel >= 1.1
 Provides:	%{name}-%{version}
-BuildRequires: gcc-gfortran
-BuildRequires: openmpi
+BuildRequires:	gcc-gfortran
+BuildRequires:	openmpi
 
 %package        -n %{lib_name}-devel
 Summary:	Scalapak 
@@ -50,16 +49,22 @@ cp SLmake.inc.example SLmake.inc
 sed -i 's|@SCALAPACK_HOME@|%{_builddir}/%{name}-%{version}|' SLmake.inc
 
 %build
-make
+make \
+F77=mpif90 \
+CC=mpicc \
+F77FLAGS="%{optflags} -O3 -fPIC" \
+CCFLAGS="%{optflags} -O3 -fPIC"
 
 %install
+rm -rf %{buildroot}
+
 mkdir -p %{buildroot}/%{_libdir}/%{name}-%{version}
-cp $RPM_BUILD_DIR/%{name}-%{version}/libscalapack.a %{buildroot}/%{_libdir}/%{name}-%{version}/libscalapack.a
+cp $RPM_BUILD_DIR/%{name}-%{version}/lib%{name}.a %{buildroot}/%{_libdir}/%{name}-%{version}/lib%{name}.a
 
 %clean
 rm -fr %{buildroot}
 
 %files -n %{lib_name}-devel
 %defattr(-,root,root) 
-%doc README
-%{_libdir}/*/libscalapack.a
+%attr(644,root,root) %doc README
+%{_libdir}/*/lib%{name}.a
