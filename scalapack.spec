@@ -1,6 +1,6 @@
 %define name	scalapack
 %define	version	1.8.0
-%define release	%mkrel 5
+%define release	%mkrel 6
 %define lib_name_orig lib%{name}
 %define lib_major 1
 %define lib_name %mklibname %name %{lib_major}
