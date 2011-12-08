@@ -59,7 +59,7 @@ CCFLAGS="%{optflags} -O3 -fPIC"
 rm -rf %{buildroot}
 
 mkdir -p %{buildroot}/%{_libdir}/%{name}-%{version}
-cp $RPM_BUILD_DIR/%{name}-%{version}/lib%{name}.a %{buildroot}/%{_libdir}/%{name}-%{version}/lib%{name}.a
+cp %{_builddir}/%{name}-%{version}/lib%{name}.a %{buildroot}/%{_libdir}/%{name}-%{version}/lib%{name}.a
 
 %clean
 rm -fr %{buildroot}
