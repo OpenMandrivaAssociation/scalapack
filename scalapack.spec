@@ -59,7 +59,7 @@ CCFLAGS="%{optflags} -O3 -fPIC"
 rm -rf %{buildroot}
 
 mkdir -p %{buildroot}/%{_libdir}/%{name}-%{version}
-cp %{_builddir}/%{name}-%{version}/lib%{name}.a %{buildroot}/%{_libdir}/%{name}-%{version}/lib%{name}.a
+cp $RPM_BUILD_DIR/%{name}-%{version}/lib%{name}.a %{buildroot}/%{_libdir}/%{name}-%{version}/lib%{name}.a
 
 %clean
 rm -fr %{buildroot}
@@ -68,3 +68,46 @@ rm -fr %{buildroot}
 %defattr(-,root,root) 
 %attr(644,root,root) %doc README
 %{_libdir}/*/lib%{name}.a
+
+
+%changelog
+* Thu Sep 10 2009 Thierry Vignaud <tvignaud@mandriva.com> 1.8.0-6mdv2010.0
++ Revision: 436252
+- rebuild
+- rebuild
+- rebuild
+
+  + Giuseppe Ghibò <ghibo@mandriva.com>
+    - Pass %%{optflags} to make.
+    - Rebuild.
+
+* Thu Feb 14 2008 Thierry Vignaud <tvignaud@mandriva.com> 1.8.0-1mdv2008.1
++ Revision: 168217
+- fix no-buildroot-tag
+- kill (multiple!) definitions of %%buildroot on Pixel's request
+
+* Wed May 02 2007 Herton Ronaldo Krzesinski <herton@mandriva.com.br> 1.8.0-1mdv2008.0
++ Revision: 20734
+- Removed Packager tag because buildsystem is complaining about it.
+- Updated to 1.8.0.
+- Fixes made to SLmake patch for this new version.
+- Added needed BuildRequires.
+- Import scalapack
+
+
+
+* Mon May 17 2004 Antoine Ginies <aginies@n2.mandrakesoft.com> 1.7-5mdk
+- rebuild
+- rpmlint fix
+
+* Tue Aug 6 2002 Antoine Ginies <aginies@mandrakesoft.com> 1.7-4mdk
+- build with gcc 3.2
+
+* Wed Jul 04 2002 Lenny Cartier <lenny@mandrakesoft.com> 1.7-3mdk
+- Rebuild
+
+* Tue Jul 02 2002 Lenny Cartier <lenny@mandrakesoft.com> 1.7-2mdk
+- fix install 
+
+* Tue May 28 2002 Antoine Ginies <aginies@mandrakesoft.com> 1.7-1mdk
+- first release for Mandrakesoft
