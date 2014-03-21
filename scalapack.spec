@@ -17,6 +17,7 @@ Requires:	blacsmpi-devel >= 1.1
 Provides:	%{name}-%{version}
 BuildRequires:	gcc-gfortran
 BuildRequires:	openmpi
+BuildRequires:	lapack-devel
 
 %package        -n %{lib_name}-devel
 Summary:	Scalapak 
