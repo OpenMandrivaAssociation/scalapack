@@ -1,2 +1,4 @@
+removed_sources:
+  scalapack-1.8.0.tgz: c185f71dda528e809e514dc02a3497817ce3af40
 sources:
-  "scalapack-1.8.0.tgz": c185f71dda528e809e514dc02a3497817ce3af40
+  scalapack-2.0.2.tgz: ff9532120c2cffa79aef5e4c2f38777c6a1f3e6a
