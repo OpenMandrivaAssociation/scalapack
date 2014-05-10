@@ -1,5 +1,5 @@
 %define old_lib_major 1
-%define old_lib_name %mklibname %{name} %{lib_major}
+%define old_lib_name %mklibname %{name} %{old_lib_major}
 %define old_lib_devel %{old_lib_name}-devel
 
 Summary: A subset of LAPACK routines redesigned for heterogeneous computing
