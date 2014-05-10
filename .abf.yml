@@ -1,4 +1,2 @@
-removed_sources:
-  scalapack-1.8.0.tgz: c185f71dda528e809e514dc02a3497817ce3af40
 sources:
-  scalapack-2.0.2.tgz: ff9532120c2cffa79aef5e4c2f38777c6a1f3e6a
+  scalapack-1.7.5.tgz: 255f94e35911fb3823f7563d33592b717c66fff7
