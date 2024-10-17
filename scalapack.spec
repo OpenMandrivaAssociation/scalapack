@@ -9,7 +9,7 @@ Release: 21%{?dist}
 # This is freely distributable without any restrictions.
 License: Public Domain
 
-URL: http://www.netlib.org/lapack-dev/
+URL: https://www.netlib.org/lapack-dev/
 Source0: http://www.netlib.org/scalapack/scalapack-%{version}.tgz
 Source1: %{name}.rpmlintrc
 BuildRequires: lapack-devel, blas-devel
