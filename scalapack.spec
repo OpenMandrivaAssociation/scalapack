@@ -12,6 +12,7 @@ License: Public Domain
 URL: https://www.netlib.org/lapack-dev/
 Source0: http://www.netlib.org/scalapack/scalapack-%{version}.tgz
 Source1: %{name}.rpmlintrc
+BuildRequires:	make
 BuildRequires: lapack-devel, blas-devel
 BuildRequires: gcc-gfortran, glibc-devel
 BuildRequires: blacs-mpich-devel, mpich-devel-static
